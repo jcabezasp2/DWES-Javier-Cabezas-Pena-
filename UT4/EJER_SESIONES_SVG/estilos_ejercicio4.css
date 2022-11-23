@@ -1,0 +1,18 @@
+body{
+background-color: darkgray;
+}
+
+#container{
+    
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    top: 20vh;
+}
+
+.carta{
+
+    font-size: 5em;
+}
+

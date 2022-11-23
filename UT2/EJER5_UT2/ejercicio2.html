@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo3.css">
+</head>
+
+<body>
+    <h1>TABLA NUMERADA (FORMULARIO)</h1>
+    <form action="Ejercicio2.php" method="get">
+        <fieldset>
+            <legend>Formulario</legend>
+            <p>Escriba dos numeros y dibujare una tabla con el numero de columnas que indique y con las primeras celdas numeradas</p>
+
+            <p>
+                <label for="celdas">Numero de celdas numeradas: </label>
+                <input type="number" name="celdas" min="1" max="10" required>
+            </p>
+            <p>
+                <label for="columnas">Numero de columnas: </label>
+                <input type="number" name="numero" min="1" max="10" required>
+            </p>
+            <p>
+                <input type="submit" name="enviar" value="Escribir">
+                <input type="reset" value="Borrar">
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>

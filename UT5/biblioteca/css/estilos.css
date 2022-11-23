@@ -1,0 +1,76 @@
+
+body{
+    background-color: grey;
+    padding-top: 10vh;
+}
+
+
+form{
+    background-color: white;
+    width: 80%;
+    margin: auto;
+}
+
+
+
+table, td, th{  
+    border: 1px black solid;
+    border-collapse: collapse;
+    background-color: white;
+    text-align: center;
+}
+
+table{
+    width: 80%;
+    margin: auto;
+}
+
+th{
+    background-color: lightgray;
+    color: dimgrey;
+    font-size: larger;
+}
+
+.titulo, .categoria, .fecha, .imagen{
+width: 9vw;
+}
+
+.titulo{
+    width: 14vw;
+}
+
+.texto{
+    width: 12vw;
+    padding: 1%;
+}
+
+#volver{
+    background-color: grey;
+    position: relative;
+    top: 15px;
+    left: 30px;
+}
+
+.entrada{
+    width: 50%;
+}
+
+#texto{
+    height: 50px;
+}
+
+h1{
+    color: white;
+    font-size: 3em;
+    text-align: center;
+}
+
+#formulario{
+    width: 100%;
+}
+
+#seleccionar{
+
+    list-style: none;
+    text-align: center;
+}

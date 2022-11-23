@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo3.css">
+</head>
+
+<body>
+    <h1>CONVERTIDOR DE TEMPERATURAS CELSIUS / FARENHEIT (FORMULARIO)</h1>
+    <form action="Ejercicio4.php" method="post">
+        <fieldset>
+            <legend>Formulario</legend>
+            <p>Escriba una temperatura en grados Celsius o Farenheit y la convetire a la otra unidad (Farenheit o Celsius)</p>
+
+            <p>
+                <label for="numero">Temperatura: </label>
+                <input type="number" name="numero" required min="1">
+                <select name="type">
+                    <option value="celsius">Celsius</option>
+                    <option value="farenheit">Farenheit</option>
+                </select>
+            </p>
+            <p>
+                <input type="submit" name="enviar" value="Convertir">
+                <input type="reset" value="Borrar">
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>
