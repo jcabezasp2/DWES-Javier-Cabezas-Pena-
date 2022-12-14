@@ -7,7 +7,7 @@ if(!isset($_SESSION['idCliente'])){
     echo "<P>[ <A HREF='login.php' TARGET='_top'>Loguearse</A> ]</P>\n";
 }else{
    echo "<p>Usuario ".$_SESSION['idCliente']."</p>";
-   echo "<p>Hora de conexion ".$_SESSION['horaConexion']."</p>"
+   echo "<p>Hora de conexion ".$_SESSION['horaConexion']."</p>";
 ?>
     <form action="<?php	$_SERVER['PHP_SELF']?>" method="post">
     <label for="envase">Envase: </label>
@@ -18,7 +18,7 @@ if(!isset($_SESSION['idCliente'])){
     $consulta = $conexion->prepare($sql);
     $consulta->execute([]);
     foreach($consulta as $fila){
-        echo '<option value="'.$fila['numero_env'].'"'.(isset($_POST['envase'])? ($_POST['envase'] == $fila['envase'] ? " selected": "" ) : "").'>'.$fila['etiqueta_env'].'</option>';
+        echo '<option value="'.$fila['numero_env'].'"'.(isset($_POST['seleccionar'])? ($_POST['envase'] == $fila['numero_env'] ? " selected": "" ) : "").'>'.$fila['etiqueta_env'].'</option>';
     }
 ?>
         </select>
@@ -28,9 +28,11 @@ if(!isset($_SESSION['idCliente'])){
         </p>
 
     </form>
+    <p><a href="visualizar_envase.php">Visualizar el fichero envase.txt</a></p>
+    <p><a href="menu.html">Volver al menu</a></p>
 <?php
     if(isset($_POST['seleccionar'])){
-        echo "Creando el fichero envase.txt";
+        echo "Creado el fichero envase.txt";
         $fichero = fopen('envase.txt','w');
         $env = $_POST['envase'];
         try{
@@ -41,7 +43,8 @@ if(!isset($_SESSION['idCliente'])){
              echo "Fallo: " . $e->getMessage();
         }
         foreach($consulta as $fila){
-            fwrite($fichero, $fila); 
+            $linea = $fila['etiqueta_prod'].' '.$fila['precio_prod'].' '.$fila['foto_prod'].'<br>';
+            fwrite($fichero, $linea); 
         }
         fclose($fichero);
     }
