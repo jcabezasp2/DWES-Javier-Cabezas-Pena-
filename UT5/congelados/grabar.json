@@ -1,0 +1,42 @@
+[
+    {
+        "numero_prod": 100,
+        "etiqueta_prod": "Coliflor",
+        "num_cat_prod": 6,
+        "num_envase_prod": 2,
+        "precio_prod": 6,
+        "observaciones_prod": "2 kg",
+        "foto_prod": "coliflor.jpg",
+        "dispo_prod": 5
+    },
+    {
+        "numero_prod": 101,
+        "etiqueta_prod": "Berenjena asada",
+        "num_cat_prod": 6,
+        "num_envase_prod": 2,
+        "precio_prod": 4,
+        "observaciones_prod": "Para 8 personas",
+        "foto_prod": "berenjena.jpg",
+        "dispo_prod": 22
+    },
+    {
+        "numero_prod": 102,
+        "etiqueta_prod": "Espinacas rellenas",
+        "num_cat_prod": 6,
+        "num_envase_prod": 2,
+        "precio_prod": 3,
+        "observaciones_prod": "Para 3 a 4 personas",
+        "foto_prod": "espinacas.jpg",
+        "dispo_prod": 4
+    },
+    {
+        "numero_prod": 103,
+        "etiqueta_prod": "Guisantes",
+        "num_cat_prod": 6,
+        "num_envase_prod": 2,
+        "precio_prod": 7,
+        "observaciones_prod": null,
+        "foto_prod": null,
+        "dispo_prod": 3
+    }
+]
