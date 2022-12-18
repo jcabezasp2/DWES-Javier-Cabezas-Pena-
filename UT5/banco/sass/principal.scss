@@ -1,0 +1,116 @@
+@import "./_form.scss";
+@import "./_aside.scss";
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+header{
+    grid-column: span 12;
+    height: 10vh;
+    background-color: black;
+    padding: 2.5vh 2vw 0 0;
+    h1{
+        text-align: end;
+        color: white;
+    }
+}
+
+aside{
+grid-column: span 2;
+background-color: black;
+height: 85vh;
+}
+
+main{
+    grid-column: span 10;
+    height: 85vh;
+    background-color: grey;
+    padding-top: 1em;
+    #main-menu{
+        display: flex;
+        flex-direction: column;
+        gap:1em;
+        flex-wrap: wrap;
+        .linea{
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ultima_linea{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .menu_item{
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            .down{
+                position: absolute;
+                top: 80%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 1.1em;
+            }
+            .up{
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 1.1em;
+            }
+        }
+
+    }
+}
+
+footer{
+    grid-column: span 12;
+    height: 5vh;
+    padding-top: 0.5em;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+h2, h3, h4{
+    text-align: center;
+}
+
+h3, h4{
+    padding-bottom: 1em;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.centrado{
+    text-align: center;
+
+}
+
+.volver{
+    position: relative;
+    top: 2%;
+    left: 10%;
+}
+
+
+
+

@@ -1,0 +1,45 @@
+
+form{
+    margin: auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1em;
+    padding-bottom: 1em;
+    h3{
+        grid-column: span 12;
+    }
+
+    .form-button{
+        grid-column: span 12;
+        text-align: center;
+        button{
+            grid-column: span 5;
+        }
+    }
+
+}
+
+
+.form-group{
+    grid-column: span 8;
+    justify-content: space-between;
+    background-color: darkgrey;
+    padding: 0.3em;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    input{
+        grid-column: span 7;
+    }
+    label{
+        grid-column: span 4;
+        color: white;
+    }
+    input[type='date']{
+        grid-column: span 3 !important;
+    }
+    input[type='number']{
+        grid-column: span 4;
+    }
+}

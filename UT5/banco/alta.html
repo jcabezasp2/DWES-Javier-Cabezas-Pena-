@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B. M. Naranco</title>
+    <script src="https://kit.fontawesome.com/c43811ca98.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/principal.css">
+    <script type="text/javascript" src="./scripts/principal.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>BANCO MONTE NARANCO</h1>
+    </header>
+
+    <aside>
+        <div id="datos-conexion">
+            <p>USUARIO</p>
+            <p id="id-usuario">Lorem</p>
+            <p>TIEMPO DE CONEXION</p>
+            <p id="cronometro">00:00</p>
+        </div>
+        <ul class="no-conectado">
+            <li><a href="login.html">Conectarse</a></li>
+        </ul>
+        <ul class="admin">
+            <li><a href="./alta.html">Alta</a></li>
+            <li><a href="">Crear cuenta</a></li>
+            <li><a href="">Listar cuentas</a></li>
+            <li><a href="">Eliminar una cuenta</a></li>
+            <li><a href="">Desconectarse</a></li>
+        </ul>
+        <ul class="cliente">
+            <li><a href="./alta.html">Alta</a></li>
+            <li><a href="">Consultar movimientos</a></li>
+            <li><a href="">Añadir movimiento</a></li>
+            <li><a href="">Desconectarse</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <h3>Alta de cliente</h3>
+        <form action="" method="post">
+
+            <div class="form-group">
+                <label for="id">Id de cliente</label>
+                <input type="text" id="id" placeholder="0000A" pattern="^\d{4}[a-zA-z]{1}$" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electronico</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="password-bis">Repetir contraseña</label>
+                <input type="password" id="password-bis" required>
+            </div>
+            <div class="form-button">
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+        <a href="index.html" class="volver"><i class="fa-solid fa-arrow-left"></i></i>Volver</a>
+    </main>
+
+    <footer>
+        <h4>Javi C</h4>
+    </footer>
+</body>
+
+</html>

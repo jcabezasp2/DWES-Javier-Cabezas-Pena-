@@ -1,0 +1,179 @@
+form {
+  margin: auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1em;
+  padding-bottom: 1em;
+}
+form h3 {
+  grid-column: span 12;
+}
+form .form-button {
+  grid-column: span 12;
+  text-align: center;
+}
+form .form-button button {
+  grid-column: span 5;
+}
+
+.form-group {
+  grid-column: span 8;
+  justify-content: space-between;
+  background-color: darkgrey;
+  padding: 0.3em;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.form-group input {
+  grid-column: span 7;
+}
+.form-group label {
+  grid-column: span 4;
+  color: white;
+}
+.form-group input[type=date] {
+  grid-column: span 3 !important;
+}
+.form-group input[type=number] {
+  grid-column: span 4;
+}
+
+aside ul {
+  padding: 0;
+}
+aside ul li {
+  width: 100%;
+}
+aside ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10%;
+  width: 100%;
+}
+aside ul li a:hover {
+  border-bottom: 1px solid white;
+}
+
+.admin {
+  display: none;
+}
+
+.cliente {
+  display: none;
+}
+
+#datos-conexion {
+  color: white;
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+header {
+  grid-column: span 12;
+  height: 10vh;
+  background-color: black;
+  padding: 2.5vh 2vw 0 0;
+}
+header h1 {
+  text-align: end;
+  color: white;
+}
+
+aside {
+  grid-column: span 2;
+  background-color: black;
+  height: 85vh;
+}
+
+main {
+  grid-column: span 10;
+  height: 85vh;
+  background-color: grey;
+  padding-top: 1em;
+}
+main #main-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+main #main-menu .linea {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+main #main-menu .ultima_linea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main #main-menu .menu_item {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+main #main-menu .menu_item .down {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.1em;
+}
+main #main-menu .menu_item .up {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.1em;
+}
+
+footer {
+  grid-column: span 12;
+  height: 5vh;
+  padding-top: 0.5em;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+h2, h3, h4 {
+  text-align: center;
+}
+
+h3, h4 {
+  padding-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.centrado {
+  text-align: center;
+}
+
+.volver {
+  position: relative;
+  top: 2%;
+  left: 10%;
+}

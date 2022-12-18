@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B. M. Naranco</title>
+    <script src="https://kit.fontawesome.com/c43811ca98.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/principal.css">
+    <script type="text/javascript" src="./scripts/principal.js"></script>
+</head>
+<body>
+    <header>
+        <h1>BANCO MONTE NARANCO</h1>
+    </header>
+
+    <aside>
+        <div id="datos-conexion">
+            <p>USUARIO</p>
+            <p id="id-usuario">Lorem</p>
+            <p>TIEMPO DE CONEXION</p>
+            <p id="cronometro">00:00</p>
+        </div>
+        <ul class="no-conectado">
+            <li><a href="login.html">Conectarse</a></li>
+            <li><a href="./alta.html">Alta</a></li>
+        </ul>
+        <ul class="admin">
+            <li><a href="./alta.html">Alta</a></li>
+            <li><a href="./crearCuenta.html">Crear cuenta</a></li>
+            <li><a href="">Listar cuentas</a></li>
+            <li><a href="">Eliminar una cuenta</a></li>
+            <li><a href="">Desconectarse</a></li>
+        </ul>
+        <ul class="cliente">
+            <li><a href="./alta.html">Alta</a></li>
+            <li><a href="">Consultar movimientos</a></li>
+            <li><a href="">Añadir movimiento</a></li>
+            <li><a href="">Desconectarse</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <div id="main-menu">
+            <div class="linea">
+                <a href="./alta.html" class="menu_item">
+                    <img src="https://via.placeholder.com/250/000000/808080?text=BMN" alt="">
+                    <div class="down">Dar de alta a un cliente</div>
+                </a>
+                <a href="./crearCuenta.html" class="menu_item">
+                    <img src="https://via.placeholder.com/250/000000/808080?text=BMN" alt="">
+                    <div class="down">Crear cuenta</div>
+                    <div class="up">Solo administrador</div>
+                </a>
+                <a href="" class="menu_item">
+                    <img src="https://via.placeholder.com/250/000000/808080?text=BMN" alt="">
+                    <div class="down">Listar cuentas</div>
+                    <div class="up">Solo administrador</div>
+                </a>
+            </div>
+            <div class="linea">
+                <a href="" class="menu_item">
+                    <img src="https://via.placeholder.com/250/000000/808080?text=BMN" alt="">
+                    <div class="down">Consultar movimientos de una cuenta</div>
+                    <div class="up">Solo logeados no administradores</div>
+                </a>
+                <a href="" class="menu_item">
+                    <img src="https://via.placeholder.com/250/000000/808080?text=BMN" alt="">
+                    <div class="down">Eliminar una cuenta</div>
+                    <div class="up">Solo administrador</div>
+                </a>
+                <a href="" class="menu_item">
+                    <img src="https://via.placeholder.com/250/000000/808080?text=BMN" alt="">
+                    <div class="down">Añadir un movimiento en la cuenta</div>
+                    <div class="up">Solo para logueados no adminstradores</div>
+                </a>
+            </div>
+        </div>
+
+        
+    </main>
+
+    <footer>    
+        <h4>Javi C</h4>
+    </footer>
+</body>
+</html>

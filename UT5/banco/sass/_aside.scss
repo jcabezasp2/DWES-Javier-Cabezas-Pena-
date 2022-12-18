@@ -1,0 +1,40 @@
+aside{
+    ul{
+        padding: 0;
+        li{
+            width: 100%;
+            a{  
+             //   border: 1px solid white;
+                color: white;
+                text-decoration: none;
+                padding: 5px 10px;
+                border-radius: 10%;
+                width: 100%;
+                &:hover{
+                    border-bottom: 1px solid white;
+                }
+     
+            }
+        }
+    }
+
+
+    }
+
+    .admin{
+        display: none;
+    }
+
+    .cliente{
+        display: none;
+    }
+
+    .no-conectado{
+
+    }
+
+    #datos-conexion{
+        color: white;
+        text-align: center;
+        padding-bottom: 1em;
+    }
