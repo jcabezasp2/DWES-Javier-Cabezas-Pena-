@@ -38,43 +38,39 @@ window.addEventListener('load', principal);
 function principal() {
     document.querySelector('#login').addEventListener('click', conectarse);
 }
-function conectarse() {
-    var email;
-    email = document.querySelector('#email');
-    var password;
-    password = document.querySelector('#password');
-    console.log(login(email.value, password.value));
+function valores() {
+    var inputEmail = document.querySelector('#email');
+    var emailValue = inputEmail.value;
+    var inputPassword = document.querySelector('#password');
+    var passwordValue = inputPassword.value;
+    return "\"{\"email\": \" ".concat(emailValue, "\", \"password\": \"").concat(passwordValue, "\"}\"");
 }
-function login(email, password) {
-    return __awaiter(this, void 0, void 0, function () {
-        var resultado;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch('./php/log.php')];
-                case 1:
-                    resultado = _a.sent();
-                    return [4 /*yield*/, resultado.text()];
-                case 2:
-                    resultado = _a.sent();
-                    return [2 /*return*/, resultado];
-            }
-        });
+function conectarse() {
+    var text = '{ "name": "John", "age": 22 }';
+    text = JSON.parse(text);
+    fetch('php/log.php', {
+        method: 'POST',
+        body: text
+    })
+        .then(function (response) {
+        if (response.ok) {
+            return response.text();
+        }
+        else {
+            throw "Error en la llamada Ajax";
+        }
+    })
+        .then(function (texto) {
+        console.log(texto);
+    })["catch"](function (err) {
+        console.log(err);
     });
 }
 function existeUsuario(email) {
     return __awaiter(this, void 0, void 0, function () {
         var resultado;
         return __generator(this, function (_a) {
-            return [2 /*return*/, resultado];
+            return [2, resultado];
         });
     });
 }
-/* let algo = getText("php/cuentas.php");
-
-async function getText(file) {
-let myObject = await fetch(file);
-let myText = await myObject.json();
-return myText;
-}
-
-console.log(algo); */ 

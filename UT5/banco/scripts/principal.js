@@ -6,6 +6,4 @@ function init() {
     var texto2 = document.createTextNode('Esto es otro texto de prueba');
     parrafo2.appendChild(texto2);
     parrafo.appendChild(texto);
-    // document.querySelector('body')?.appendChild(parrafo);
-    // document.querySelector('body')?.appendChild(parrafo2);
 }

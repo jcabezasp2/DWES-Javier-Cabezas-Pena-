@@ -2,28 +2,49 @@
 window.addEventListener('load', principal);
 
 function principal(): void {
-   document.querySelector('#login').addEventListener('click', conectarse)
-    
+   document.querySelector('#login').addEventListener('click', conectarse);
+
+
 }
 
+function valores(){
+   const inputEmail = document.querySelector('#email') as HTMLInputElement;
+   let emailValue = inputEmail.value;
+
+   const inputPassword = document.querySelector('#password') as HTMLInputElement;
+   let passwordValue = inputPassword.value;
+   return   `"{"email": " ${emailValue}", "password": "${passwordValue}"}"`;
+}
 
 function conectarse(): void{
-    let email: HTMLInputElement;
-    email = document.querySelector('#email');
+   //let email :<HTMLInputElement>;
 
-    let password: HTMLInputElement;
-    password = document.querySelector('#password');
+   // const data = [];
+   //let text = valores();
+    let text = '{ "name": "John", "age": 22 }';
+    text = JSON.parse(text);
+    fetch('php/log.php', {
+       method: 'POST',
+       body: text
+    })
+    .then(function(response) {
+       if(response.ok) {
+           return response.text()
+       } else {
+           throw "Error en la llamada Ajax";
+       }
+    
+    })
+    .then(function(texto) {
+       console.log( texto);
+    })
+    .catch(function(err) {
+       console.log(err);
+    });
 
 
-    console.log(login(email.value, password.value));
 }
 
- async function login(email: string, password: string) {
-    let resultado: any;
-    resultado = await fetch('./php/log.php');
-    resultado = await resultado.text();
-    return resultado;
-} 
 
  async function existeUsuario(email: string) {
     let resultado: any;
@@ -31,6 +52,10 @@ function conectarse(): void{
 
     return resultado;
 }
+
+
+
+
 
 
 
@@ -43,3 +68,16 @@ return myText;
 }
 
 console.log(algo); */
+
+
+/*  const invoke = (name: string, workId: number, id: string, params: any = undefined) => {
+   const url = 'php/log.php';
+   return fetch(url, {
+       method: 'POST',
+       body: JSON.stringify(params ?? {}),
+       headers: {
+           'Content-Type': 'plain/text'
+       }
+   });
+}
+ */

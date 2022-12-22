@@ -2,8 +2,14 @@
 session_start();
 include 'conexion.php';
 date_default_timezone_set("Europe/Madrid");
+//echo gettype( json_decode( $_POST, true));
+//var_dump(json_encode($_POST));
 
-try {
+//echo $_POST['email'];
+//echo '{ "name": "John", "age": 22 }';
+//echo $_POST['employees'];
+///var_dump(  $_POST);
+/* try {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $sql = "SELECT clave FROM cliente WHERE email = :email";
@@ -29,4 +35,4 @@ if($cuantosCoinciden == 1 ){
 
 }elseif($cuantosCoinciden == 0 ){
      echo "ERROR, Usuario no registrado" ;
-}
+} */
