@@ -4,9 +4,9 @@
    echo '<link rel="stylesheet" type="text/css" href="estilo.css" />';
    if (isset($_SESSION["idCliente"])){   
       session_destroy ();
-      header("Location: login.php");
+      echo 'Cerrada la session';
    }else{
-      header("Location: login.php");
+      echo 'Error';
    }
 ?>
 

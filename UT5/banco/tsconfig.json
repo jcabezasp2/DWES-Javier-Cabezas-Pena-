@@ -1,10 +1,20 @@
 {
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Node 16",
+  
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "sourceMap": false
-    },
-    "exclude": [
-        "node_modules"
-    ]
-}
+      "lib": ["ES2021", "ES2022", "DOM"],
+      "module": "ES2022",
+      "target": "ES2021",
+  
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "sourceMap": false
+    }
+  }
+
+
+
+
