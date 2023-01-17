@@ -1,3 +1,4 @@
+"use strict";
 window.addEventListener('load', init);
 function init() {
     var parrafo = document.createElement('p');

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,34 +37,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 window.addEventListener('load', principal);
 function principal() {
-    document.querySelector('#login').addEventListener('click', conectarse);
+    var _a;
+    (_a = document.querySelector('#login')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', conectarse);
 }
 function valores() {
     var inputEmail = document.querySelector('#email');
     var emailValue = inputEmail.value;
     var inputPassword = document.querySelector('#password');
     var passwordValue = inputPassword.value;
-    return "\"{\"email\": \" ".concat(emailValue, "\", \"password\": \"").concat(passwordValue, "\"}\"");
+    var resultado = "{\"email\": \" ".concat(emailValue, "\", \"password\": \"").concat(passwordValue, "\"}");
+    return resultado;
 }
 function conectarse() {
-    var text = '{ "name": "John", "age": 22 }';
-    text = JSON.parse(text);
+    var data = valores();
+    console.log(data);
     fetch('php/log.php', {
         method: 'POST',
-        body: text
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: data
     })
-        .then(function (response) {
-        if (response.ok) {
-            return response.text();
-        }
-        else {
-            throw "Error en la llamada Ajax";
-        }
-    })
-        .then(function (texto) {
-        console.log(texto);
-    })["catch"](function (err) {
-        console.log(err);
+        .then(function (response) { return response.text(); })
+        .then(function (data) {
+        console.log('Success:', data);
+    })["catch"](function (error) {
+        console.error('Error:', error);
     });
 }
 function existeUsuario(email) {

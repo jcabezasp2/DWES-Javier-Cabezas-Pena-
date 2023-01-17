@@ -2,13 +2,28 @@
 session_start();
 include 'conexion.php';
 date_default_timezone_set("Europe/Madrid");
+
+/* $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = explode("/", $uri);
+
+echo $uri[5]; */
+
+
+
+$datos = $_POST;
+//$datos = $_POST;
+var_dump($datos);
+//echo $datos;
+
 //echo gettype( json_decode( $_POST, true));
 //var_dump(json_encode($_POST));
 
 //echo $_POST['email'];
 //echo '{ "name": "John", "age": 22 }';
-//echo $_POST['employees'];
-///var_dump(  $_POST);
+//echo json_encode( $_POST);
+//echo "<script>console.log('Console: " . $_POST . "' );</script>";
+//echo 'AAAA';
+//echo json_encode($_POST);
 /* try {
     $email = $_POST['email'];
     $password = $_POST['password'];
