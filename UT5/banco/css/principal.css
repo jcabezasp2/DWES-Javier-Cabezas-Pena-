@@ -39,6 +39,9 @@ form .form-button button {
 .form-group input[type=number] {
   grid-column: span 4;
 }
+.form-group p {
+  grid-column: span 12;
+}
 
 aside ul {
   padding: 0;
@@ -55,14 +58,6 @@ aside ul li a {
 }
 aside ul li a:hover {
   border-bottom: 1px solid white;
-}
-
-.admin {
-  display: none;
-}
-
-.cliente {
-  display: none;
 }
 
 #datos-conexion {
@@ -104,6 +99,7 @@ main {
   height: 85vh;
   background-color: grey;
   padding-top: 1em;
+  overflow-y: auto;
 }
 main #main-menu {
   display: flex;
@@ -176,4 +172,67 @@ a {
   position: relative;
   top: 2%;
   left: 10%;
+}
+
+#mensaje {
+  text-align: center;
+}
+
+#datosCuenta {
+  width: 50%;
+  margin: auto;
+}
+#datosCuenta table {
+  border-collapse: collapse;
+  margin: 5% auto 10% auto;
+  width: 100%;
+}
+#datosCuenta table tr {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+}
+#datosCuenta table th {
+  border: 1px solid white;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+#datosCuenta table td {
+  border: 1px solid white;
+  text-align: center;
+}
+
+#ingreso {
+  grid-column: span 1;
+}
+
+#ingreso-label {
+  grid-column: auto;
+}
+
+#salto {
+  grid-column: span 12;
+}
+
+#reintegro-label {
+  grid-column: span 1;
+}
+
+#reintegro {
+  grid-column: auto;
+}
+
+#no-permitido {
+  width: 50%;
+  margin: 10% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+#no-permitido i {
+  color: red;
+  font-size: 3em;
 }

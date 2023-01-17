@@ -8,7 +8,7 @@
     <title>B. M. Naranco</title>
     <script src="https://kit.fontawesome.com/c43811ca98.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/principal.css">
-    <script type="module" src="./scripts/login.js"></script>
+    <script type="module" src="./scripts/movimientos.js"></script>
 </head>
 
 <body>
@@ -24,28 +24,19 @@
     </aside>
 
     <main>
-        <h3>Conectarse</h3>
-        <form method="post" id="form-login">
+        <h3>Consultar movimientos</h3>
+        <form action="" method="post">
 
             <div class="form-group">
-                <label for="email">Correo electronico</label>
-                <input type="email" id="email" required>
-                <p id="email-error"></p>
+                <label for="cuenta">Cuenta</label>
+                <select name="cuenta" id="cuenta"></select>
             </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" required>
-                <p id="password-error"></p>
-            </div>
+    
             <div class="form-button">
-<<<<<<< HEAD
-                <input type="button" value="Enviar" id="login">
-=======
-                <input type="button" id="login" value="Iniciar sesion">
->>>>>>> d54de53ae14fcb4e65de0bc98e990d4b45fc3692
+            <button id="buscar" type="submit">Buscar</button>
             </div>
         </form>
-        <div id="pruebas"></div>
+        <div id="datosCuenta"></div>
         <a href="index.html" class="volver"><i class="fa-solid fa-arrow-left"></i></i>Volver</a>
     </main>
 

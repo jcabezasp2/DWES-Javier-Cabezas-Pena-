@@ -34,6 +34,7 @@ main{
     height: 85vh;
     background-color: grey;
     padding-top: 1em;
+    overflow-y: auto;
     #main-menu{
         display: flex;
         flex-direction: column;
@@ -111,6 +112,65 @@ a{
     left: 10%;
 }
 
+#mensaje{
+    text-align: center;
+}
 
+#datosCuenta{
+    width: 50%;
+    margin: auto;
 
+    table{
+        border-collapse: collapse;
+        margin: 5% auto 10% auto;
+        width: 100%;
+        tr{
+            width: fill-available;
+        }
+        th{
+            border: 1px solid white;
+            text-align: center;
+            background-color: black;
+            color: white; 
+        }
+        td{
+            border: 1px solid white;
+            text-align: center;
+        }
+    }
+}
 
+#ingreso{
+    grid-column: span 1;
+}
+
+#ingreso-label{
+    grid-column: auto;
+}
+
+#salto{
+    grid-column: span 12;
+}
+
+#reintegro-label{
+    grid-column: span 1;
+}
+
+#reintegro{
+    grid-column: auto;
+}
+
+#no-permitido{
+    width: 50%;
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    i{
+        color: red;
+        font-size: 3em;
+
+    }
+}

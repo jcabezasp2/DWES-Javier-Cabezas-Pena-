@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B. M. Naranco</title>
+    <script src="https://kit.fontawesome.com/c43811ca98.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/principal.css">
+    <script type="module" src="./scripts/anadirMovimiento.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>BANCO MONTE NARANCO</h1>
+    </header>
+
+    <aside>
+        <div id="datos-conexion">
+
+        </div>
+        <div id="menu"></div>
+    </aside>
+
+    <main>
+        <h3>Añadir movimiento</h3>
+        <form action="" method="post">
+
+            <div class="form-group">
+                <label for="cuenta">Cuenta</label>
+                <select name="cuenta" id="cuenta"></select>
+            </div>
+
+            <div class="form-group">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" name="cantidad" id="cantidad" min="1"></input>
+                <p id="cantidad-error"></p>
+            </div>
+
+            <div class="form-group">
+                <label id="ingreso-label" for="ingreso">Ingreso</label>
+                <input type="radio" value="I" name="tipo" id="ingreso" checked></input>
+                <div id="salto"></div>
+                <label id="reintegro-label" for="reintegro">Reintegro</label>
+                <input type="radio" value="R" name="tipo" id="reintegro"></input>
+            </div>
+    
+            <div class="form-button">
+            <button id="insertar" type="submit">Insertar</button>
+            </div>
+        </form>
+        <div id="resultado"></div>
+        <a href="index.html" class="volver"><i class="fa-solid fa-arrow-left"></i></i>Volver</a>
+    </main>
+
+    <footer>
+        <h4>Javi C</h4>
+    </footer>
+</body>
+
+</html>

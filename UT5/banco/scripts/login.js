@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -29,11 +30,41 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
                     if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
                     if (t[2]) _.ops.pop();
                     _.trys.pop(); continue;
+=======
+import Usuario from "./usuario.js";
+import { iniciar } from "./utils/iniciador.js";
+import { comprobarFormulario } from "./utils/form.js";
+import { setCookie } from "./utils/coockies.js";
+window.addEventListener('load', initLogin);
+function initLogin() {
+    document.querySelector('#login').addEventListener('click', enviar);
+    iniciar();
+}
+let ajax;
+function enviar() {
+    const email = document.querySelector('#email');
+    const password = document.querySelector('#password');
+    if (comprobarFormulario([email, password])) {
+        let emailValue = email.value;
+        let passwordValue = password.value;
+        // Comprobamos que está disponible AJAX
+        if (window.XMLHttpRequest) {
+            ajax = new XMLHttpRequest();
+        }
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+                if (ajax.status == 200) {
+                    //alert(ajax.responseText)
+                    login(ajax.response);
+                }
+>>>>>>> d54de53ae14fcb4e65de0bc98e990d4b45fc3692
             }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+        };
+        ajax.open("POST", "./php/log.php", true);
+        ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        ajax.send("&email=" + emailValue + "&password=" + passwordValue);
     }
+<<<<<<< HEAD
 };
 window.addEventListener('load', principal);
 function principal() {
@@ -72,4 +103,28 @@ function existeUsuario(email) {
             return [2, resultado];
         });
     });
+=======
+}
+function login(respuesta) {
+    if (respuesta == 2) {
+        //Contraseña incorrecta
+        let input = document.querySelector('#password');
+        input.focus();
+        input.parentElement.style.backgroundColor = 'red';
+    }
+    else if (respuesta == 3) {
+        //El usuario no existe
+        let input = document.querySelector('#email');
+        input.focus();
+        input.parentElement.style.backgroundColor = 'red';
+    }
+    else {
+        let id = respuesta.split(':')[0];
+        let nombre = respuesta.split(':')[1];
+        let usuario = new Usuario(id, nombre);
+        setCookie('id', usuario.idCliente, 1);
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+        window.location.href = 'index.html';
+    }
+>>>>>>> d54de53ae14fcb4e65de0bc98e990d4b45fc3692
 }
