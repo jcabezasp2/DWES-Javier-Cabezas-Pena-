@@ -92,8 +92,11 @@ class ProjectController extends Controller
     {
         $validated=$request->safe()->only(['name', 'description', 'image', 'category_id']);
 
-        $imageName = time().'.'.$request->image->extension();file('image')&gt;store('/', 'images');
-        $request->image->move(public_path('images'), $imageName);
+        if($request->hasFile('image')){
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $validated['image'] = $imageName;
+        }
 
         $project->update($validated);
 

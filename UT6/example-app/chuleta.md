@@ -30,6 +30,9 @@
 - Compilar hojas de estilos
     npm run dev
 
+-Crear Links simbolicos
+    php artisan storage:link
+
 
 ##Carpetas
 
