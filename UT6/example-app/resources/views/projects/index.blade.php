@@ -62,13 +62,12 @@
                         <td class="py-4 px-6">
                             {{ $project->category->title }}
                         </td>
-                        <td class="py-4 px-6">
-                            <a href="http://localhost:8888/images/{{ $project->image }}" target="_blank">{{ $project->image }}</a>
-                        </td>
 {{--                         <td class="py-4 px-6">
                              {{Storage::disk('images')->size($project->image)}}
                         </td> --}}
-
+                        <td class="py-4 px-6">
+                            <img class="w-[50px]" src="{{ asset('images/'.$project->image) }}" alt="">
+                        </td>
                         <td class="py-4 px-5 flex items-center gap-x-2.5">
                             <a href="{{ route('projects.edit', $project->id) }}"
                                 class="font-medium text-blue-600  hover:underline">

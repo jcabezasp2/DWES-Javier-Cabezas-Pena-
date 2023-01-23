@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Http\Requests\ProjectRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -112,6 +113,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        Storage::disk('images')->delete($project->image);
         $project->delete();
         return back()->with('success', _('¡Proyecto eliminado!'));
     }

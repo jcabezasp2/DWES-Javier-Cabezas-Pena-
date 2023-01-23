@@ -76,11 +76,10 @@
                             <?php echo e($project->category->title); ?>
 
                         </td>
+
                         <td class="py-4 px-6">
-                            <a href="http://localhost:8888/images/<?php echo e($project->image); ?>" target="_blank"><?php echo e($project->image); ?></a>
+                            <img class="w-[50px]" src="<?php echo e(asset('images/'.$project->image)); ?>" alt="">
                         </td>
-
-
                         <td class="py-4 px-5 flex items-center gap-x-2.5">
                             <a href="<?php echo e(route('projects.edit', $project->id)); ?>"
                                 class="font-medium text-blue-600  hover:underline">
