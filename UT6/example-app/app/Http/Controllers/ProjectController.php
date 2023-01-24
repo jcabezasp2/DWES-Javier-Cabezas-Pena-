@@ -46,9 +46,12 @@ class ProjectController extends Controller
     public function store(ProjectRequest $request)
     {
         $validated=$request->safe()->only(['name', 'description', 'image', 'category_id']);
-
         $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
+        if($request->image->getMimeType() == 'application/pdf'){
+            $request->image->move(public_path('pdf'), $imageName);
+        }else{
+            $request->image->move(public_path('images'), $imageName);
+        }
         $validated['image'] = $imageName;
 
         Project::create($validated);
@@ -95,7 +98,11 @@ class ProjectController extends Controller
 
         if($request->hasFile('image')){
             $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
+            if($request->image->getMimeType() == 'application/pdf'){
+                $request->image->move(public_path('pdf'), $imageName);
+            }else{
+                $request->image->move(public_path('images'), $imageName);
+            }
             $validated['image'] = $imageName;
         }
 

@@ -62,11 +62,12 @@
                         <td class="py-4 px-6">
                             {{ $project->category->title }}
                         </td>
-{{--                         <td class="py-4 px-6">
-                             {{Storage::disk('images')->size($project->image)}}
-                        </td> --}}
                         <td class="py-4 px-6">
-                            <img class="w-[50px]" src="{{ asset('images/'.$project->image) }}" alt="">
+                            @if (Str::endsWith($project->image, 'pdf')  )
+                            <a target="blank" href="{{ asset('pdf/'.$project->image) }}">PDF</a>
+                            @else
+                            <img class="w-[50px]" src="{{ asset('images/'.$project->image) }}" alt="{{$project->image}}">
+                            @endif
                         </td>
                         <td class="py-4 px-5 flex items-center gap-x-2.5">
                             <a href="{{ route('projects.edit', $project->id) }}"

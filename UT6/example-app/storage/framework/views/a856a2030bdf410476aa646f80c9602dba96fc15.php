@@ -76,9 +76,12 @@
                             <?php echo e($project->category->title); ?>
 
                         </td>
-
                         <td class="py-4 px-6">
-                            <img class="w-[50px]" src="<?php echo e(asset('images/'.$project->image)); ?>" alt="">
+                            <?php if(Str::endsWith($project->image, 'pdf')  ): ?>
+                            <a target="blank" href="<?php echo e(asset('pdf/'.$project->image)); ?>">PDF</a>
+                            <?php else: ?>
+                            <img class="w-[50px]" src="<?php echo e(asset('images/'.$project->image)); ?>" alt="<?php echo e($project->image); ?>">
+                            <?php endif; ?>
                         </td>
                         <td class="py-4 px-5 flex items-center gap-x-2.5">
                             <a href="<?php echo e(route('projects.edit', $project->id)); ?>"

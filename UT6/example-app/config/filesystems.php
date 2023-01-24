@@ -63,6 +63,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'pdf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/pdf'),
+            'url' => env('APP_URL').'/pdf',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*
@@ -79,6 +86,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
         public_path('images') => storage_path('app/images'),
+        public_path('pdf') => storage_path('app/pdf'),
     ],
 
 ];
