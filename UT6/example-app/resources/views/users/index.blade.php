@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-blue-600 leading-tight">
@@ -34,16 +33,31 @@
                 </tr>
             </thead>
             <tbody>
+
                 @forelse ($users  as $user)
-                <td class="py-4 px-6 ">
-                    {{ $user->id }}
-                </td>
-                <td class="py-4 px-6 ">
-                    {{ $user->name }}
-                </td>
-                <td class="py-4 px-6 ">
-                    {{ $user->email }}
-                </td>
+                    <tr>
+                        <td class="py-4 px-6 ">
+                            {{ $user->id }}
+                        </td>
+                        <td class="py-4 px-6 ">
+                            {{ $user->name }}
+                        </td>
+                        <td class="py-4 px-6 ">
+                            {{ $user->email }}
+                        </td>
+                        <td>
+                            {{-- {{dd($user)}} --}}
+                            {{ implode(
+                                ', ',
+                                $user->roles->map(function ($role) {
+                                        return $role->name;
+                                    })->toArray(),
+                            ) }}
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('users.edit', $user) }}">Editar</a>
+                        </td>
+                    </tr>
                 @empty
                     <h3 class="text-2xl text-center font-bold p-5">No hay usuarios</h3>
                 @endforelse
@@ -52,7 +66,7 @@
 
         {{-- Pagination --}}
         <div class="p-4">
-            {{ $projects->links() }}
+            {{ $users->links() }}
         </div>
     </div>
 
