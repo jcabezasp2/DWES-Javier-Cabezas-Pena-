@@ -29,5 +29,6 @@ Route::middleware('auth')->group(function () {
 });
 // crear ruta de proyectos
 Route::resource('projects', ProjectController::class)->middleware(['auth', 'verified']);
+Route::resource('users', UserController::class);
 
 require __DIR__.'/auth.php';

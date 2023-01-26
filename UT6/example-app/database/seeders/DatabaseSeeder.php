@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,14 +22,16 @@ class DatabaseSeeder extends Seeder
         //Creacion de los usuarios
         \App\Models\User::factory(10)->create();
 
-         \App\Models\User::factory()->create([
+        \App\Models\User::factory()->create([
              'name' => 'Test User',
              'email' => 'test@example.com',
          ]);
 
-         //Creacion de los proyectos
-         \App\Models\Project::factory(10)->create();
+        //Creacion de los proyectos
+        \App\Models\Project::factory(10)->create();
 
+        //Creacion de los roles y permisos
+        $this->call(RoleSeeder::class);
 
     }
 }
