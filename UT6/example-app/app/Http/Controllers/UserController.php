@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
+
 
 class UserController extends Controller
 {
@@ -58,7 +65,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+
         $roles = Role::all();
+
         return view('users.edit', compact('user', 'roles'));
     }
 
@@ -71,7 +80,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+       $user->roles()->sync($request->roles);
+         return redirect()->route('users.index', $user)->with('success', 'Usuario actualizado correctamente');
     }
 
     /**

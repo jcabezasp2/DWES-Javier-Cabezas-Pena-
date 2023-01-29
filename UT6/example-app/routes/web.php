@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,5 +33,7 @@ Route::middleware('auth')->group(function () {
 // crear ruta de proyectos
 Route::resource('projects', ProjectController::class)->middleware(['auth', 'verified']);
 Route::resource('users', UserController::class);
+Route::resource('permissions', PermissionController::class);
+Route::resource('roles', RoleController::class);
 
 require __DIR__.'/auth.php';
