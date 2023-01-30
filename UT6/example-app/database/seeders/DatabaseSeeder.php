@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,18 +21,16 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
 
         //Creacion de los usuarios
-        \App\Models\User::factory(10)->create();
-
-        \App\Models\User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
-         ]);
+        $this->call(UserSeeder::class);
 
         //Creacion de los proyectos
-        \App\Models\Project::factory(10)->create();
+        $this->call(ProjectSeeder::class);
 
         //Creacion de los roles y permisos
         $this->call(RoleSeeder::class);
+
+        //Creacion de los permisos
+        $this->call(PermissionSeeder::class);
 
     }
 }

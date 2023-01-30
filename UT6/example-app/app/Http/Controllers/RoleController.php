@@ -65,8 +65,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $title = _('Crear rol');
-        $textButton= _('Crear rol');
+        $title = _('Editar rol');
+        $textButton= _('Editar rol');
         $route = route('roles.store');
         /* $guards = DB::table('roles')->select('guard_name')->distinct()->get(); */
         $guards = ['web', 'api'];

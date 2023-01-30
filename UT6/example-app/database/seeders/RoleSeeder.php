@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\PermissionRegistrar;
+use App\Models\User;
+
 
 class RoleSeeder extends Seeder
 {
@@ -21,22 +23,17 @@ class RoleSeeder extends Seeder
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $role1=Role::create(['name'=>'admin']);
-        $role2=Role::create(['name'=>'guest']);
-        $role3=Role::create(['name'=>'mod']);
-        Permission::create(['name'=>'admin'])->syncRoles([$role1,$role2]);
-        Permission::create(['name'=>'admin.list_users'])->syncRoles([$role1]);
-        Permission::create(['name'=>'admin.list_projects'])->syncRoles([$role1,$role2,$role3]);
+        $admin=Role::create(['name'=>'admin']);
+        $guest=Role::create(['name'=>'guest']);
 
+        //Asignar el rol admin al usuario admin
+        $administrator = User::where('name', 'admin')->first();
+        $administrator->assignRole($admin);
 
-
-
-        //Creacion del usuario administrador
-        $admin = \App\Models\User::factory()->create([
-            'name' => 'admin',
-            'email' => 'admin@example.com',
-        ]);
-
-        $admin->assignRole($role1);
+        //Asignar el rol guest al resto de usuarios
+        $users = User::where('name', '!=', 'admin')->get();
+        foreach ($users as $user) {
+            $user->assignRole($guest);
+        }
     }
 }
