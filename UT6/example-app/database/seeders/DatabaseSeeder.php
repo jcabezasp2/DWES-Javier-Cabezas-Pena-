@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         //Creacion de los proyectos
         $this->call(ProjectSeeder::class);
 
-        //Creacion de los roles y permisos
+        //Creacion de los roles
         $this->call(RoleSeeder::class);
 
         //Creacion de los permisos

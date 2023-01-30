@@ -27,7 +27,7 @@ class PermissionSeeder extends Seeder
 
                 //Permisos sobre proyectos
                 Permission::create(['name'=>'list_projects'])->syncRoles([$admin,$guest]);
-                Permission::create(['name'=>'delete_projects'])->syncRoles([$admin]);
+                Permission::create(['name'=>'delete_projects'])->syncRoles([$admin,$guest]);
                 Permission::create(['name'=>'create_projects'])->syncRoles([$guest]);
                 Permission::create(['name'=>'modify_projects'])->syncRoles([$guest]);
 

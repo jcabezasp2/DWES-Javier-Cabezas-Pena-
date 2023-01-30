@@ -13,10 +13,12 @@
     @endif
 
     <div class="overflow-x-auto mx-auto my-12 relative shadow-md sm:rounded-lg bg-white">
+        @can('create_projects')
         <div class="p-5 bg-white flex items-center justify-center">
             <a href="{{ route('projects.create') }}"
                 class="px-4 py-2 rounded-lg bg-blue-800 hover:opacity-80 text-white">Crear Proyecto</a>
         </div>
+        @endcan
         <table class="w-full text-sm text-left text-gray-500 ">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                 <tr>
@@ -53,7 +55,6 @@
                             {{ $project->name }}
                         </td>
                         <td class="py-4 px-6">
-
                             {{ $project->description }}
                         </td>
                         <td class="py-4 px-6">
@@ -70,19 +71,22 @@
                             @endif
                         </td>
                         <td class="py-4 px-5 flex items-center gap-x-2.5">
-                            <a href="{{ route('projects.edit', $project->id) }}"
-                                class="font-medium text-blue-600  hover:underline">
-                                Edit
-                            </a>
-
-                            {{-- Delete Article --}}
-                            <form action="{{ route('projects.destroy', $project->id) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="px-2 font-medium text-red-600  hover:underline">
-                                    Delete
-                                </button>
-                            </form>
+                            @can('modify_projects')
+                                <a href="{{ route('projects.edit', $project->id) }}"
+                                    class="font-medium text-blue-600  hover:underline">
+                                    Edit
+                                </a>
+                            @endcan
+                            @can('delete_projects')
+                                {{-- Delete Article --}}
+                                <form action="{{ route('projects.destroy', $project->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="px-2 font-medium text-red-600  hover:underline">
+                                        Delete
+                                    </button>
+                                </form>
+                            @endcan
                         </td>
                     </tr>
                 @empty

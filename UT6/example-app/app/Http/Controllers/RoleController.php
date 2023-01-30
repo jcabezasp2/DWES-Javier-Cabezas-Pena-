@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -29,10 +30,11 @@ class RoleController extends Controller
         $role = new Role;
         $title = _('Crear rol');
         $textButton= _('Crear rol');
-        $route = route('roles.store');
-        /* $guards = DB::table('roles')->select('guard_name')->distinct()->get(); */
+        $route = 'roles.store';
+        $method = 'POST';
         $guards = ['web', 'api'];
-        return view('roles.form', compact('role', 'title', 'textButton', 'route', 'guards'));
+        $permissions = Permission::all();
+        return view('roles.form', compact('role', 'title', 'textButton', 'route', 'guards', 'permissions', 'method'));
     }
 
     /**
@@ -43,7 +45,11 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $role = Role::create($request->only(['name', 'guard_name']));
+        $role->syncPermissions($request->permissions);
+        return redirect(route('roles.index'))
+            ->with('success',_("¡Rol creado!"));
     }
 
     /**
@@ -67,10 +73,12 @@ class RoleController extends Controller
     {
         $title = _('Editar rol');
         $textButton= _('Editar rol');
-        $route = route('roles.store');
+        $route = 'roles.update';
+        $method = 'PUT';
         /* $guards = DB::table('roles')->select('guard_name')->distinct()->get(); */
         $guards = ['web', 'api'];
-        return view('roles.form', compact('role', 'title', 'textButton', 'route', 'guards'));
+        $permissions = Permission::all();
+        return view('roles.form', compact('role', 'title', 'textButton', 'route', 'guards', 'permissions', 'method'));
     }
 
     /**
@@ -82,7 +90,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $role->update($request->only(['name', 'guard_name']));
+        $role->syncPermissions($request->permissions);
+        return redirect(route('roles.index'))
+            ->with('success',_("¡Rol creado!"));
     }
 
     /**
@@ -93,6 +104,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return back()->with('success', _('¡Rol eliminado!'));
     }
 }

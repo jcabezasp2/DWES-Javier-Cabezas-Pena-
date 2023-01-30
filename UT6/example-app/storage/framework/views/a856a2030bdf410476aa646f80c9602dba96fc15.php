@@ -22,10 +22,12 @@
     <?php endif; ?>
 
     <div class="overflow-x-auto mx-auto my-12 relative shadow-md sm:rounded-lg bg-white">
+        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('create_projects')): ?>
         <div class="p-5 bg-white flex items-center justify-center">
             <a href="<?php echo e(route('projects.create')); ?>"
                 class="px-4 py-2 rounded-lg bg-blue-800 hover:opacity-80 text-white">Crear Proyecto</a>
         </div>
+        <?php endif; ?>
         <table class="w-full text-sm text-left text-gray-500 ">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                 <tr>
@@ -64,7 +66,6 @@
 
                         </td>
                         <td class="py-4 px-6">
-
                             <?php echo e($project->description); ?>
 
                         </td>
@@ -84,19 +85,22 @@
                             <?php endif; ?>
                         </td>
                         <td class="py-4 px-5 flex items-center gap-x-2.5">
-                            <a href="<?php echo e(route('projects.edit', $project->id)); ?>"
-                                class="font-medium text-blue-600  hover:underline">
-                                Edit
-                            </a>
-
-                            
-                            <form action="<?php echo e(route('projects.destroy', $project->id)); ?>" method="post">
-                                <?php echo csrf_field(); ?>
-                                <?php echo method_field('delete'); ?>
-                                <button type="submit" class="px-2 font-medium text-red-600  hover:underline">
-                                    Delete
-                                </button>
-                            </form>
+                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('modify_projects')): ?>
+                                <a href="<?php echo e(route('projects.edit', $project->id)); ?>"
+                                    class="font-medium text-blue-600  hover:underline">
+                                    Edit
+                                </a>
+                            <?php endif; ?>
+                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('delete_projects')): ?>
+                                
+                                <form action="<?php echo e(route('projects.destroy', $project->id)); ?>" method="post">
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo method_field('delete'); ?>
+                                    <button type="submit" class="px-2 font-medium text-red-600  hover:underline">
+                                        Delete
+                                    </button>
+                                </form>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>

@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            <form class="w-full max-w-lg border-4" method="POST" action="{{ $route }}" enctype="multipart/form-data">
+            {!!Form::model($role, ['route'=>[$route, $role], 'method'=>$method])!!}
                 @csrf
 
                 @if($role->id)
@@ -39,11 +39,12 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="guard" class="block mb-2 text-sm font-medium text-gray-900 ">
+                        <label for="guard_name" class="block mb-2 text-sm font-medium text-gray-900 ">
                             Guard
                         </label>
-                        <select id="category_id" name="category_id" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <select disabled id="guard_name" name="guard_name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             @foreach($guards as $guard)
+
                                 <option {{ old("guard_name", $role->guard_name) === $guard ? 'selected' : '' }} value="{{ $guard }}">{{ $guard }}</option>
                             @endforeach
                         </select>
@@ -52,7 +53,7 @@
 
                     <div class="mb-6 flex flex-col">
 
-                        @foreach (\App\Models\Permission::get() as $permission)
+                        @foreach ($permissions as $permission)
                             <div class="inline-flex items-center mb-6">
                                 <label>
                                     {!!Form::checkbox('permissions[]', $permission->id, null, ['class'=>'mr-1'])!!}
@@ -71,7 +72,7 @@
                     <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">{{ $textButton }}</button>
 
                 </div>
-                </form>
+                {!!Form::close()!!}
         </div>
     </div>
 
