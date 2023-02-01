@@ -6,6 +6,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,5 +36,6 @@ Route::resource('projects', ProjectController::class)->middleware(['auth', 'veri
 Route::resource('users', UserController::class);
 Route::resource('permissions', PermissionController::class);
 Route::resource('roles', RoleController::class);
+Route::resource('admin', AdminController::class);
 
 require __DIR__.'/auth.php';
