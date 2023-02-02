@@ -17,7 +17,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::paginate(5);
-        return view('roles.index', compact('roles'));
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -34,7 +34,7 @@ class RoleController extends Controller
         $method = 'POST';
         $guards = ['web', 'api'];
         $permissions = Permission::all();
-        return view('roles.form', compact('role', 'title', 'textButton', 'route', 'guards', 'permissions', 'method'));
+        return view('admin.roles.form', compact('role', 'title', 'textButton', 'route', 'guards', 'permissions', 'method'));
     }
 
     /**
@@ -78,7 +78,7 @@ class RoleController extends Controller
         /* $guards = DB::table('roles')->select('guard_name')->distinct()->get(); */
         $guards = ['web', 'api'];
         $permissions = Permission::all();
-        return view('roles.form', compact('role', 'title', 'textButton', 'route', 'guards', 'permissions', 'method'));
+        return view('admin.roles.form', compact('role', 'title', 'textButton', 'route', 'guards', 'permissions', 'method'));
     }
 
     /**

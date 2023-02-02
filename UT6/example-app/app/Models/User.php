@@ -47,4 +47,8 @@ class User extends Authenticatable
     public function projects(){
         return $this->hasMany(Project::class);
     }
+
+    public function adminlte_image(){
+        return 'https://picsum.photos/300/300';
+    }
 }
