@@ -18,7 +18,7 @@ class ProjectFactory extends Factory
     {
         return [
            'name' => fake()->company(),
-           'description' => fake()->text(),
+           'description' => fake()->text(5000),
            //'image' => fake()->imageUrl(),
             'image' => '1674500450.jpg',
            'user_id' => \App\Models\User::all()->random(),

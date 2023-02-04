@@ -66,8 +66,9 @@
 
                         </td>
                         <td class="py-4 px-6">
-                            <?php echo e($project->description); ?>
-
+                             <span class="descripcion"><?php echo e(Str::words($project->description, 5, ' ...')); ?></span>
+                            <span style="display: none"><?php echo e($project->description); ?></span>
+                            <button type="button" onclick="leerMas(event)">Leer mas</button>
                         </td>
                         <td class="py-4 px-6">
                             <?php echo e($project->user->name); ?>
@@ -108,7 +109,21 @@
                 <?php endif; ?>
             </tbody>
         </table>
-
+        <script>
+            function leerMas(event){
+                let recortado = event.target.previousElementSibling;
+                let completo = event.target.previousElementSibling.previousElementSibling;
+                if (recortado.style.display == 'none') {
+                    recortado.style.display = 'inline';
+                    completo.style.display = 'none';
+                    event.target.innerText = 'Leer menos';
+                } else {
+                    recortado.style.display = 'none';
+                    completo.style.display = 'inline';
+                    event.target.innerText = 'Leer mas';
+                }
+            }
+        </script>
         
         <div class="p-4">
             <?php echo e($projects->links()); ?>
