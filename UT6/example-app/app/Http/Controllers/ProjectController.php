@@ -18,10 +18,14 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //$projects = Project::paginate(5);
-        $projects = Project::where('user_id', auth()->user()->id)->paginate(5);
-        //devuelve una vista y le pasamos la variable projects
-        return view('projects.index', compact('projects'));
+
+        if(auth()->user()->hasPermissionTo('list_projects')){
+            $projects = Project::paginate(5);
+            return view('projects.index', compact('projects'));
+        }else{
+            $projects = Project::where('user_id', auth()->user()->id)->paginate(5);
+            return view('projects.index', compact('projects'));
+        }
     }
 
     /**

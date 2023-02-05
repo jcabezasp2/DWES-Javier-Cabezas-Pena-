@@ -13,7 +13,7 @@
     {{ session('success') }}
 </div>
 @endif
-
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <div class="overflow-x-auto mx-auto my-12 relative shadow-md sm:rounded-lg bg-white">
 <table class="w-full text-sm text-left text-gray-500 ">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">

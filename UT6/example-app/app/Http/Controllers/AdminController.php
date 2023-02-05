@@ -13,7 +13,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-       return view('admin.index');
+        if(auth()->user()->hasRole('admin')){
+            return view('admin.index');
+        }else{
+            return redirect(route('dashboard'));
+        }
     }
 
     /**

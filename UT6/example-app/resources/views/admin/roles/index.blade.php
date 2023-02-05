@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 @if (session('success'))
 <div class="max-w-4xl mx-auto mt-8 bg-green-700 text-white p-3 rounded-lg">
     {{ session('success') }}

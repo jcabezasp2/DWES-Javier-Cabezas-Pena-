@@ -255,7 +255,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -316,10 +316,23 @@ return [
             'icon_color' => 'red',
         ],
         [
-            'text' => 'Roles',
-            'url'  => 'roles',
+            'text'    => 'Roles',
             'icon' => 'fas fa-fw fa-mask',
             'icon_color' => 'green',
+            'submenu' => [
+                [
+                    'text'  => 'Ver Roles',
+                    'url' => 'roles',
+                    'icon'  => 'fas  fa-users',
+                    'shift' => 'ml-4',
+                ],
+                [
+                    'text'  => 'Crear Rol',
+                    'url' => 'roles/create',
+                    'icon'  => 'fas  fa-users',
+                    'shift' => 'ml-4',
+                ],
+            ],
         ],
         [
             'text' => 'Permisos',
@@ -329,13 +342,12 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Editar Perfil',
+            'url'  => 'profile',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-people',
+            'text' => 'Cambiar Contraseña',
+            'url'  => 'profile',
         ],
     ],
 

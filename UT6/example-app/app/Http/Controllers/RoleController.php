@@ -93,7 +93,7 @@ class RoleController extends Controller
         $role->update($request->only(['name', 'guard_name']));
         $role->syncPermissions($request->permissions);
         return redirect(route('roles.index'))
-            ->with('success',_("¡Rol creado!"));
+            ->with('success',_("¡Rol editado!"));
     }
 
     /**
