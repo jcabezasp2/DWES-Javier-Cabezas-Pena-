@@ -19,7 +19,8 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $projects = \App\Models\Project::all();
+    return view('welcome', compact('projects'));
 });
 
 Route::get('/dashboard', function () {
