@@ -25,13 +25,12 @@ class UserQuery extends Query
             'id' => [
                 'name' => 'id',
                 'type' => Type::int(),
-                'rules' => ['required']
-            ]
+            ],
         ];
     }
 
     public function resolve($root, $args)
     {
-        return User::findOrFail($args['id']);
+            return User::findOrFail($args['id']);
     }
 }

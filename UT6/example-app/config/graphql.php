@@ -81,7 +81,7 @@ return [
                 'projects' => \App\GraphQL\Query\ProjectsQuery::class,
             ],
             'mutation' => [
-                // ExampleMutation::class,
+                'createProject' => \App\GraphQL\Mutation\CreateProjectMutation::class,
             ],
             // The types only available in this schema
             'types' => [

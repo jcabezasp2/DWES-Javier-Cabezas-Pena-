@@ -35,8 +35,12 @@ class projectType extends GraphQLType
                 'description' => 'image of project'
             ],
             'user_id' => [
-                'type' => GraphQL::type('User'),
+                'type' => Type::nonNull(Type::int()),
                 'description' => 'user_id of project'
+            ],
+            'category_id' => [
+                'type' => Type::nonNull(Type::int()),
+                'description' => 'category_id of project'
             ],
         ];
     }
