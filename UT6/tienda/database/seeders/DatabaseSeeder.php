@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
     {
          //Creacion de los usuarios
          $this->call(UserSeeder::class);
+
+        //Creacion de los productos
+        $this->call(ProductSeeder::class);
     }
 }
