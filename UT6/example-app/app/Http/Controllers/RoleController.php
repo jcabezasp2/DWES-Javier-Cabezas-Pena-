@@ -45,11 +45,15 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-
-        $role = Role::create($request->only(['name', 'guard_name']));
-        $role->syncPermissions($request->permissions);
-        return redirect(route('roles.index'))
-            ->with('success',_("¡Rol creado!"));
+        if(Role::where('name', $request->name)->exists()){
+            return redirect(route('roles.index'))
+                ->with('error',_("¡El rol ya existe!"));
+        }else{
+            $role = Role::create($request->only(['name', 'guard_name']));
+            $role->syncPermissions($request->permissions);
+            return redirect(route('roles.index'))
+                ->with('success',_("¡Rol creado!"));
+        }
     }
 
     /**

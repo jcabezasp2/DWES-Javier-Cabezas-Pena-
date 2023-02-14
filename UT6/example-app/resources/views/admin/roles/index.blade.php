@@ -13,6 +13,11 @@
     {{ session('success') }}
 </div>
 @endif
+@if (session('error'))
+<div class="max-w-4xl mx-auto mt-8 bg-danger p-3 rounded-lg">
+    {{ session('error') }}
+</div>
+@endif
 
 <div class="overflow-x-auto mx-auto my-12 relative shadow-md sm:rounded-lg bg-white">
 <div class="p-5 bg-white flex items-center justify-center">
