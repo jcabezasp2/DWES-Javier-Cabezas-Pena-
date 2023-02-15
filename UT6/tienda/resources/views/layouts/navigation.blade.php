@@ -12,9 +12,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('products.list')" :active="request()->routeIs('products.list')">
+{{--                     <x-nav-link :href="route('products.list')" :active="request()->routeIs('products.list')">
                         {{ __('Tienda') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     @auth
                     <x-nav-link :href="route('cart.list')" :active="request()->routeIs('cart.list')">
                         <svg class="w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">

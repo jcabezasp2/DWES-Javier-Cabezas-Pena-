@@ -1,14 +1,16 @@
-
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Product List') }}
+        </h2>
+</x-slot>
 <div class="container px-12 py-8 mx-auto">
-    <h3 class="text-2xl font-bold text-white">Productos</h3>
+    <h3 class="text-2xl font-bold text-purple-700">Our Product</h3>
+    <div class="h-1 bg-red-500 w-36"></div>
     <div class="grid grid-cols-1 gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         @foreach ($products as $product)
-
         <div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-md shadow-md">
-            <div class="w-full">
-                <img src="{{asset('images/'.$product->image_path) }}" alt="" class="w-full max-h-60">
-            </div>
+            <img src="{{ url($product->image) }}" alt="" class="w-full max-h-60">
             <div class="flex items-end justify-end w-full bg-cover">
 
             </div>
@@ -20,9 +22,9 @@
                     <input type="hidden" value="{{ $product->id }}" name="id">
                     <input type="hidden" value="{{ $product->name }}" name="name">
                     <input type="hidden" value="{{ $product->price }}" name="price">
-                    <input type="hidden" value="{{ $product->image_path }}"  name="image">
+                    <input type="hidden" value="{{ $product->image }}"  name="image">
                     <input type="hidden" value="1" name="quantity">
-                    <button class="px-4 py-1.5 text-white text-sm bg-black rounded">Agregar al carrito</button>
+                    <button class="px-4 py-1.5 text-white text-sm bg-blue-800 rounded">Add To Cart</button>
                 </form>
             </div>
 

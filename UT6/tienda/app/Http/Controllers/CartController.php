@@ -37,11 +37,11 @@ class CartController extends Controller
     }
 
     public function removeCart(Request $request){
-        \Cart::clear($request->id);
+        \Cart::remove($request->id);
         return redirect()->route('cart.list')->with('success', 'Eliminado producto del carrito');
     }
 
-    public function clear(){
+    public function clearCart(){
         \Cart::clear();
         return redirect()->route('cart.list')->with('success', 'Carrito borrado');
     }

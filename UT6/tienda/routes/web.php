@@ -18,11 +18,13 @@ use App\Http\Controllers\CartController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = \App\Models\Product::all();
+    return view('welcome', compact('products'));
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $products = \App\Models\Product::all();
+    return view('dashboard', compact('products'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
