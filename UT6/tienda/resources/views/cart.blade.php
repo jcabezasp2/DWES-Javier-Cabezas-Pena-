@@ -63,7 +63,7 @@
                                         </td>
                                         <td class="hidden text-right md:table-cell">
                                             <span class="text-sm font-medium lg:text-base">
-                                                ${{ $item->price }}
+                                                {{ $item->price }}€
                                             </span>
                                         </td>
                                         <td class="hidden text-right md:table-cell">
@@ -80,7 +80,7 @@
                             </tbody>
                         </table>
                         <div>
-                            Total: ${{ Cart::getTotal() }}
+                            Total: {{ Cart::getTotal() }}€
                         </div>
                         <div>
                             <form action="{{ route('cart.clear') }}" method="POST">
@@ -88,8 +88,12 @@
                                 <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Borrar todo</button>
                             </form>
                         </div>
-
-
+                        <div>
+                            <form action="{{url('payment')}}">
+                                @csrf
+                                <button class="px-6 py-2 text-sm  rounded shadow text-red-100 bg-red-500">Pagar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

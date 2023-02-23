@@ -12,7 +12,8 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "laravelcollective/html": "^6.3",
-        "rebing/graphql-laravel": "^8.5"
+        "rebing/graphql-laravel": "^8.5",
+        "srmklive/paypal": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

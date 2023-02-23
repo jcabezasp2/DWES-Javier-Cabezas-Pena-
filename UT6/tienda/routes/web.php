@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PayPalController;
 
 
 /*
@@ -40,5 +41,10 @@ Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearCart'])->name('cart.clear');
+
+// Rutas de PayPal
+Route::get('payment', [PaypalController::class, 'payment'])->name('payment');
+Route::get('cancelPayment', [PaypalController::class, 'cancelPayment'])->name('payment.cancel');
+Route::get('successPayment', [PaypalController::class, 'successPayment'])->name('payment.success');
 
 require __DIR__.'/auth.php';
