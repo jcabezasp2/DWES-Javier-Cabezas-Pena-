@@ -17,6 +17,7 @@ class PaypalController extends Controller
     {
         $data = [];
         $sql = "INSERT INTO invoices (user_id, total, status) VALUES (1, 100, 'pending')";
+        dd( \Cart::getContent());
         $data['items'] = \Cart::getContent();
 
         $data['invoice_id'] = 5;
