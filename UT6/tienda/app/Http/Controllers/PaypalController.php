@@ -15,12 +15,26 @@ class PaypalController extends Controller
     //Esta función nos llevará a la página de paypal, donde el usuario terminará o cancelará el pago
     public function payment()
     {
-        $data = [];
-        $sql = "INSERT INTO invoices (user_id, total, status) VALUES (1, 100, 'pending')";
-        dd( \Cart::getContent());
-        $data['items'] = \Cart::getContent();
+       $invoice = Invoice::create([
+            'user_id' => auth()->user()->id,
+            'price' => \Cart::getTotal(),
+            'paid' => false,
+        ]);
 
-        $data['invoice_id'] = 5;
+
+        $data = [];
+
+        //Añadimos los productos al carrito
+        foreach (\Cart::getContent() as $item) {
+            $data['items'][] = [
+                'name' => $item->name,
+                'price' => $item->price,
+                'desc' => $item->description,
+                'qty' => $item->quantity
+            ];
+        }
+
+        $data['invoice_id'] = strval($invoice->id);
         $data['invoice_description'] = "Compra de productos en la tienda";
         $data['return_url'] = route('payment.success'); //si se hace bien el pago
         $data['cancel_url'] = route('payment.cancel'); // si se cancela el pago
@@ -51,14 +65,17 @@ class PaypalController extends Controller
             $data = [];
             $data['items'] = \Cart::getContent();
 
-            $data['invoice_id'] = 5;
+            $data['invoice_id'] = $response['INVNUM'];
             $data['invoice_description'] = "Compra de productos en la tienda";
             $data['return_url'] = route('payment.success'); //si se hace bien el pago
             $data['cancel_url'] = route('payment.cancel'); // si se cancela el pago
             $data['total'] = \Cart::getTotal();
 
             $payment_status = $paypalModule->doExpressCheckoutPayment($data, $response['TOKEN'], $response['PAYERID']);
-            return redirect()->route('cart.list')->with('success', 'Pago reailzado correctamente');
+            $invoice = Invoice::find($response['INVNUM']);
+            $invoice->paid = true;
+            $invoice->save();
+            return redirect()->route('cart.list')->with('success', 'Pago realizado correctamente');
         }
 
         dd('Error occured!');
