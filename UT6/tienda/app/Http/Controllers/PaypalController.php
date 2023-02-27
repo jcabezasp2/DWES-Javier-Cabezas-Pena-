@@ -75,6 +75,7 @@ class PaypalController extends Controller
             $invoice = Invoice::find($response['INVNUM']);
             $invoice->paid = true;
             $invoice->save();
+            \cart::clear();
             return redirect()->route('cart.list')->with('success', 'Pago realizado correctamente');
         }
 

@@ -35,12 +35,12 @@ Route::middleware('auth')->group(function () {
 });
 
 // Rutas del proyecto
-Route::get('products', [ProductController::class, 'productList'])->name('products.list');
-Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
-Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
-Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
-Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
-Route::post('clear', [CartController::class, 'clearCart'])->name('cart.clear');
+Route::get('products', [ProductController::class, 'productList'])->name('products.list')->middleware(['auth', 'verified']);
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list')->middleware(['auth', 'verified']);
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store')->middleware(['auth', 'verified']);
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update')->middleware(['auth', 'verified']);
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove')->middleware(['auth', 'verified']);
+Route::post('clear', [CartController::class, 'clearCart'])->name('cart.clear')->middleware(['auth', 'verified']);
 
 // Rutas de PayPal
 Route::get('payment', [PaypalController::class, 'payment'])->name('payment');
